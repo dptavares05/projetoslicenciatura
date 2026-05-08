@@ -1,0 +1,7 @@
+Coins: 100
+Level: 5
+C A L E S
+CAL
+ELA
+SAL
+SELA

@@ -1,0 +1,57 @@
+﻿CREATE TABLE membro (
+          Nome VARCHAR(100) PRIMARY KEY,
+        IdMemb INT PRIMARY KEY,
+        País VARCHAR(100),
+        DataNasc DATE
+);
+
+
+CREATE TABLE doce (
+        Nome VARCHAR(100) PRIMARY KEY,
+        Descrição TEXT,
+        Género VARCHAR(50)
+);
+
+
+CREATE TABLE amigo (
+        Membro1 INT,
+        Membro2 INT,
+        PRIMARY KEY (Membro1, Membro2),
+        FOREIGN KEY (Membro1) REFERENCES membro(IdMemb),
+        FOREIGN KEY (Membro2) REFERENCES membro(IdMemb)
+);
+
+
+CREATE TABLE criou (
+        Membro INT,
+        Doce VARCHAR(100),
+        PRIMARY KEY (Membro, Doce),
+        FOREIGN KEY (Membro) REFERENCES membro(IdMemb),
+        FOREIGN KEY (Doce) REFERENCES doce(Nome)
+);
+
+
+CREATE TABLE fez (
+        Membro INT,
+        Doce VARCHAR(100),
+        Tempo INT,
+        Aspeto INT,
+        Sabor INT,
+        PRIMARY KEY (Membro, Doce),
+        FOREIGN KEY (Membro) REFERENCES membro(IdMemb), 
+FOREIGN KEY (Doce) REFERENCES doce(Nome)
+);
+
+
+CREATE TABLE ingrediente (
+        Nome VARCHAR(100) PRIMARY KEY, 
+Custo DECIMAL(10, 2)
+);
+CREATE TABLE temIngrediente (
+        Doce VARCHAR(100),
+        Ingrediente VARCHAR(100),
+        Quantidade INT,
+        PRIMARY KEY (Doce, Ingrediente),
+        FOREIGN KEY (Doce) REFERENCES doce(Nome), 
+FOREIGN KEY (Ingrediente) REFERENCES ingrediente(Nome)
+);

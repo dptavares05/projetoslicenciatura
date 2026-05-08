@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>58049 - SVG</title>
+    <style>
+        
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: white; /* Remover o fundo verde da página */
+            font-family: Arial, sans-serif;
+        }
+        .arena-container {
+            width: 300px;
+            height: 300px;
+            background-color: #32CD32; /* Fundo verde ácido */
+            margin: 0 auto;
+            position: relative;
+        }
+        svg {
+            display: block;
+        }
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trabalho de 58049 - SVG</h1>
+    <div class="arena-container">
+        <div id="score">PONTUAÇÃO: 0</div>
+        <svg id="arena" width="250" height="300" xmlns="http://www.w3.org/2000/svg">
+            
+        </svg>
+    </div>
+    <script src="js/svg.js"></script>
+</body>
+</html>

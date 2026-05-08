@@ -1,0 +1,433 @@
+﻿3
+A)- 
+INSERT INTO membro (Nome, IdMemb, País, DataNasc) VALUES 
+('Ana Silva', 1, 'Portugal','1990-05-20'),
+         ('João Pereira', 2, 'Brasil', '1985-11-15'),
+         ('Cláudia Santos', 3, 'Angola','1992-01-30'),
+         ('Rui Gomes', 4, 'Moçambique','1988-08-10'),
+         ('Sofia Almeida', 5, 'Espanha', '1995-12-25'),
+         ('Miguel Costa', 6, 'França','1987-01-14'),
+         ('Carla Martins', 7, 'Itália', '1993-03-03'),
+         ('Pedro Ferreira', 8, 'Reino Unido', '1980-07-21'),
+         ('Tiago Ribeiro', 9, 'Espanha','1994-06-30'),
+         ('Mariana Lopes', 10, 'Alemanha', '1989-04-12');
+
+
+B)-
+INSERT INTO ingrediente (Nome, Custo) VALUES
+        ('Açúcar', 1.00),
+        ('Farinha', 0.50),
+        ('Chocolate', 2.00),
+        ('Ovos', 0.30),
+        ('Natas', 1.50),
+        ('Leite', 0.80),
+        ('Água', 0.10),
+        ('Maçã', 0.60),
+        ('Manteiga', 1.20),
+        ('Alfarroba', 1.50),
+        ('Baunilha', 2.50),
+        ('Canela', 0.40),
+        ('Pimenta', 0.20);
+
+
+INSERT INTO temIngrediente (Doce, Ingrediente, Quantidade) VALUES 
+    ('Bolo de Chocolate', 'Açúcar', 100),
+    ('Bolo de Chocolate', 'Farinha', 200),
+    ('Bolo de Chocolate', 'Chocolate', 150),
+    ('Bolo de Chocolate', 'Ovos', 3),
+    ('Bolo de Chocolate', 'Manteiga', 50),
+    ('Tarte de Maçã', 'Açúcar', 80),
+    ('Tarte de Maçã', 'Farinha', 180),
+    ('Tarte de Maçã', 'Ovos', 2),
+    ('Tarte de Maçã', 'Maçã', 100),
+    ('Tarte de Maçã', 'Canela', 5),
+    ('Pudim de Alfarroba', 'Açúcar', 90),
+    ('Pudim de Alfarroba', 'Leite', 200),
+    ('Pudim de Alfarroba', 'Alfarroba', 60),
+    ('Pudim de Alfarroba', 'Ovos', 4),
+    ('Bolo de Baunilha', 'Farinha', 250),
+    ('Bolo de Baunilha', 'Baunilha', 10),
+    ('Bolo de Baunilha', 'Ovos', 3),
+    ('Bolo de Baunilha', 'Açúcar', 120),
+    ('Torta de Canela', 'Farinha', 150),
+    ('Torta de Canela', 'Canela', 7),
+    ('Torta de Canela', 'Manteiga', 40),
+    ('Torta de Canela', 'Açúcar', 70),
+    ('Mousse de Natas', 'Natas', 200),
+    ('Mousse de Natas', 'Açúcar', 50),
+    ('Mousse de Natas', 'Ovos', 2),
+    ('Arroz Doce', 'Açúcar', 60),
+    ('Arroz Doce', 'Leite', 150),
+    ('Arroz Doce', 'Ovos', 2),
+    ('Arroz Doce', 'Canela', 5),
+    ('Bolo de Pimenta', 'Farinha', 200),
+    ('Bolo de Pimenta', 'Manteiga', 50),
+    ('Bolo de Pimenta', 'Ovos', 3),
+    ('Bolo de Pimenta', 'Açúcar', 90),
+    ('Bolo de Maçã', 'Farinha', 200),
+    ('Bolo de Maçã', 'Açúcar', 80),
+    ('Bolo de Maçã', 'Maçã', 100),
+    ('Bolo de Maçã', 'Ovos', 2),
+    ('Torta de Chocolate', 'Farinha', 180),
+    ('Torta de Chocolate', 'Chocolate', 150),
+    ('Torta de Chocolate', 'Açúcar', 100),
+    ('Torta de Chocolate', 'Ovos', 3),
+    ('Torta de Chocolate', 'Natas', 30);
+    (‘Torta de Chocolate’, ‘Baunilha’,5);
+
+
+
+
+
+
+
+
+C)- 
+INSERT INTO doce (Nome, Descrição, Género) VALUES
+        ('Bolo de Chocolate', 'Um delicioso bolo de chocolate.', 'Regional'),
+        ('Tarte de Maçã', 'Uma tarte clássica com maçãs.', 'Tradicional'),
+        ('Pudim de Alfarroba', 'Pudim feito com alfarroba.', 'Regional'),
+        ('Bolo de Baunilha', 'Bolo simples e saboroso de baunilha.', 'Regional'),
+        ('Torta de Canela', 'Torta recheada com canela.', 'Tradicional'),
+        ('Mousse de Natas', 'Mousse leve feita com natas.', 'Regional'),
+        ('Arroz Doce', 'Um doce tradicional feito com arroz.', 'Tradicional'),
+        ('Bolo de Pimenta', 'Bolo picante com pimenta.', 'Regional'),
+        ('Bolo de Maçã', 'Bolo macio com pedaços de maçã.', 'Regional'),
+        ('Torta de Chocolate', 'Torta rica em chocolate.', 'Tradicional');
+
+
+INSERT INTO criou (Membro, Doce) VALUES 
+        (1, 'Bolo de Chocolate'),
+        (2, 'Tarte de Maçã'),
+        (3, 'Pudim de Alfarroba'),
+        (4, 'Bolo de Baunilha'),
+        (5, 'Torta de Canela'),
+        (1, 'Mousse de Natas'),
+        (2, 'Arroz Doce'),
+        (3, 'Bolo de Pimenta'),
+        (4, 'Bolo de Maçã'),
+        (5, 'Torta de Chocolate');
+
+
+INSERT INTO fez (Membro, Doce, Tempo, Aspeto, Sabor) VALUES
+        (1, 'Bolo de Chocolate', 1, 5, 5),  
+        (2, 'Bolo de Chocolate', 1, 5, 4), 
+(1, 'Tarte de Maçã', 2, 4, 4),
+(2, 'Tarte de Maçã', 2, 3, 3),
+(3, 'Tarte de Maçã', 1, 2, 4), 
+(1, 'Pudim de Alfarroba', 4, 1, 4),
+(2, 'Pudim de Alfarroba', 4, 2, 2),
+(4, 'Bolo de Baunilha', 4, 3, 2),
+​​(5, 'Torta de Canela', 5, 4, 3),
+(1, 'Mousse de Natas', 5, 5, 4),
+(2, 'Arroz Doce', 3, 5, 5),
+(3, 'Bolo de Pimenta', 2, 5, 5),
+(4, 'Bolo de Maçã', 1, 4, 4),
+(5, 'Torta de Chocolate', 2, 5, 4),
+(1, 'Bolo de Maçã', 1, 3, 3),
+(2, 'Bolo de Maçã', 1, 4, 5),
+(3, 'Bolo de Maçã', 1, 2, 4);
+
+
+D)-
+INSERT INTO amigo (Membro1, Membro2) VALUES (1, 2),
+(2,1), 
+(1, 3),
+(3,1),
+(1, 4), 
+(4,1), 
+(1, 5), 
+(5,1), 
+(1, 6), 
+(6,1), 
+(1, 7), 
+(7,1), 
+(1, 8), 
+(8,1), 
+(1, 9), 
+(9,1), 
+(1, 10), 
+(10,1), 
+(2, 3), 
+(3,2), 
+(2, 4), 
+(4,2), 
+(3, 5), 
+(5,3), 
+(5, 7), 
+(7,5), 
+(6, 8), 
+(8,6), 
+(7, 9), 
+(9,7), 
+(8, 10), 
+(10,8);
+E)-
+Para responder a alinha 4a) foi preciso inserir os seguintes valor:
+
+INSERT INTO doce (Nome, Descrição, Género) VALUES 
+        ('Torta de Chocolate e Canela', 'Doce tradicional espanhol de chocolate com um toque de canela.', 'Regional');
+INSERT INTO criou (Membro, Doce) VALUES 
+        (5, 'Torta de Chocolate e Canela'),
+        (9, 'Torta de Chocolate e Canela');
+INSERT INTO temIngrediente (Doce, Ingrediente, Quantidade) VALUES
+        ('Torta de Chocolate e Canela', 'Chocolate', 2),
+        ('Torta de Chocolate e Canela', 'Canela', 1);
+Para responder a alinha 4b) foi preciso inserir os seguiintes valor:
+INSERT INTO membro (Nome, IdMemb, País, DataNasc) VALUES
+('Joaquim José', 11, 'Portugal', '1982-09-15'),
+('Pedro Carmo', 12, 'Índia', '1999-05-18'), 
+('Rodrigo Barreto', 13, 'Angola', '1990-06-19');
+INSERT INTO amigo (Membro1, Membro2) VALUES
+(11, 12),
+(12, 11),
+(11, 13),
+(13, 11);
+INSERT INTO criou (Membro, Doce) VALUES
+(12, 'Torta de Chocolate'),
+(13, 'Arroz Doce');
+INSERT INTO fez (Membro, Doce, Tempo, Aspeto, Sabor) VALUES
+(12, 'Torta de Chocolate', 3, 4, 5),
+(13, 'Arroz Doce', 2, 5, 4);
+
+
+Para responder a alinha 4c) nao e preciso inserir mais informaçoes na tabela.
+Para responder a 4d) nao e preciso inserir mais informaçao pois ja existe o doce com natas que nao teve 5 sabor
+Para a alinha 4e) tambem nao e preciso inserir mais informaçao.
+Para a alinha 4f) tambem nao e preciso inserir mais informaçao.
+Para a alinha 4g) tambem nao e preciso inserir mais informaçao.
+Para a alinha 4h) tambem nao e preciso inserir mais informaçao.
+Para a alinha 4i) tambem nao e preciso inserir mais informaçao.
+Para a alinha 4j) tambem nao e preciso inserir mais informaçao.
+Para a alinha 4k) tambem nao e preciso inserir mais informaçao.
+Para responder a alinha l) foi preciso inserir os seguintes valores:
+INSERT INTO membro (Nome, IdMemb, País, DataNasc) VALUES 
+('Carlos Abreu', 14, 'Portugal', '2004-05-01');
+INSERT INTO amigo (Membro1, Membro2) VALUES
+(12, 14),  
+(14, 12),  
+(13, 14), 
+(14, 13);  
+
+
+
+
+Para responder a alinha m) tive que adicionar as seguintes informaçoes:
+INSERT INTO fez (Membro, Doce, Tempo, Aspeto, Sabor) VALUES 
+(12, 'Torta de Chocolate', 2, 5, 4), 
+(13, 'Torta de Chocolate', 2, 5, 4), 
+(12, 'Bolo de Baunilha', 4, 3, 5),  
+(13, 'Bolo de Baunilha', 4, 3, 5);  
+
+
+Para a alinha 4n) tambem nao e preciso inserir mais informaçao.
+Para a alinha 4o) tambem nao e preciso inserir mais informaçao.
+
+
+
+
+
+
+
+
+
+
+
+
+4
+A)- 
+SELECT DISTINCT m.Nome
+FROM membro m
+JOIN criou c ON m.IdMemb = c.Membro
+JOIN doce d ON c.Doce = d.Nome
+JOIN temIngrediente ti ON d.Nome = ti.Doce
+WHERE m.País = 'Espanha'
+  AND d.Género = 'Regional'
+  AND ti.Ingrediente IN ('Chocolate', 'Canela')
+GROUP BY m.Nome, d.Nome
+HAVING COUNT(DISTINCT ti.Ingrediente) = 2;
+
+
+
+
+B)-
+SELECT d.Nome
+FROM doce d
+JOIN criou c ON d.Nome = c.Doce
+JOIN amigo a ON c.Membro = a.Membro2
+JOIN fez f ON f.Membro = a.Membro2 AND f.Doce = d.Nome
+WHERE a.Membro1 = 11
+  AND d.Género = 'Tradicional'
+  AND f.Aspeto = 5;
+
+
+
+
+
+
+
+
+C)-
+
+
+SELECT m.Nome
+FROM membro m
+WHERE m.IdMemb IN (
+    SELECT f.Membro
+    FROM fez f
+    JOIN criou c ON f.Doce = c.Doce
+    WHERE f.Membro IN (
+        SELECT amigo.Membro2
+        FROM amigo
+        WHERE amigo.Membro1 = m.IdMemb
+    )
+    GROUP BY f.Membro
+)
+AND NOT EXISTS (
+    SELECT *
+    FROM fez f2
+    JOIN criou c2 ON f2.Doce = c2.Doce
+    WHERE f2.Membro = m.IdMemb
+    AND c2.Membro <> m.IdMemb
+);
+
+
+
+
+D)-
+
+
+SELECT d.Nome
+FROM doce d
+JOIN temIngrediente ti ON d.Nome = ti.Doce
+JOIN fez f ON d.Nome = f.Doce
+WHERE ti.Ingrediente = 'Natas'
+AND f.Sabor < 5;
+
+
+E)-
+
+
+SELECT DISTINCT m.Nome
+FROM membro m
+JOIN criou c ON m.IdMemb = c.Membro
+JOIN temIngrediente ti ON c.Doce = ti.Doce
+WHERE ti.Ingrediente IN ('Canela', 'Leite')
+GROUP BY m.Nome
+HAVING COUNT(DISTINCT ti.Ingrediente) = 2;
+
+
+F)- 
+
+SELECT DISTINCT d.Nome
+FROM doce d
+JOIN temIngrediente ti ON d.Nome = ti.Doce
+WHERE ti.Ingrediente IN ('Maçã', 'Baunilha');
+
+
+G)-
+
+
+SELECT SUM(i.Custo * ti.Quantidade / CASE 
+    WHEN ti.Ingrediente IN ('Arroz', 'Açúcar', 'Leite') THEN 100  -- consideramos 100 gramas/ml para o cálculo
+    ELSE 1 
+END) AS CustoTotal
+FROM temIngrediente ti
+JOIN ingrediente i ON ti.Ingrediente = i.Nome
+WHERE ti.Doce = 'Arroz Doce';
+
+
+H)-
+
+
+SELECT d.Nome AS Doce, SUM(i.Custo * ti.Quantidade) AS Custo_Total
+FROM doce d
+JOIN temIngrediente ti ON d.Nome = ti.Doce
+JOIN ingrediente i ON ti.Ingrediente = i.Nome
+GROUP BY d.Nome;
+
+
+
+
+
+
+
+
+
+
+I)-
+SELECT m.Nome, COUNT(c.Doce)
+FROM membro m
+LEFT JOIN criou c ON m.IdMemb = c.Membro
+GROUP BY m.Nome;
+
+
+J)-
+SELECT m.Nome, COUNT(c.Doce)
+FROM membro m
+JOIN criou c ON m.IdMemb = c.Membro
+GROUP BY m.Nome
+ORDER BY COUNT(c.Doce) DESC
+LIMIT 1;
+
+
+K)-
+WITH Custo_Doces AS (
+    SELECT doce.Nome AS Nome_Doce, SUM(ingrediente.Custo * temIngrediente.Quantidade) AS Custo_Total
+    FROM doce
+    JOIN temIngrediente ON doce.Nome = temIngrediente.Doce
+    JOIN ingrediente ON temIngrediente.Ingrediente = ingrediente.Nome
+    GROUP BY doce.Nome
+),
+Doce_Mais_Caro AS (
+    SELECT Nome_Doce
+    FROM Custo_Doces
+    WHERE Custo_Total = (SELECT MAX(Custo_Total) FROM Custo_Doces)
+)
+SELECT membro.Nome
+FROM fez
+JOIN membro ON fez.Membro = membro.IdMemb
+JOIN Doce_Mais_Caro ON fez.Doce = Doce_Mais_Caro.Nome_Doce;
+
+
+L)-
+SELECT m1.Nome
+FROM amigo a1
+JOIN amigo a2 ON a1.Membro2 = a2.Membro2
+JOIN membro m1 ON a2.Membro1 = m1.IdMemb
+WHERE a1.Membro1 = (SELECT IdMemb FROM membro WHERE Nome = 'Joaquim José')
+GROUP BY m1.Nome
+HAVING COUNT(DISTINCT a2.Membro1) = (SELECT COUNT(*) FROM amigo WHERE Membro1 = (SELECT IdMemb FROM membro WHERE Nome = 'Joaquim José'));
+
+
+M)-
+SELECT Membro
+FROM fez
+WHERE Doce IN (
+    SELECT Doce
+    FROM doce
+    WHERE Ingrediente = 'Baunilha'
+)
+GROUP BY Membro
+HAVING COUNT(DISTINCT Doce) = (
+    SELECT COUNT(DISTINCT Doce)
+    FROM doce
+    WHERE Ingrediente = 'Baunilha'
+);
+
+
+N)-
+SELECT DISTINCT Doce
+FROM fez
+WHERE Doce NOT IN (
+    SELECT Doce
+    FROM fez
+    WHERE Tempo <> 1
+);
+
+
+O)-
+SELECT Nome
+FROM doce
+WHERE Custo = (SELECT MIN(Custo) FROM doce)
+   OR Tempo = (SELECT MIN(Tempo) FROM doce);

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação X3D</title>
+    <script src="https://www.x3dom.org/release/x3dom.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/release/x3dom.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 20px;
+        }
+        x3d {
+            width: 800px;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Animação X3D</h1>
+        <x3d>
+            <scene>
+                <!-- Ambiente (luz e fundo) -->
+                <background skyColor="0.5 0.8 1"></background>
+                <directionalLight direction="0 -1 -1" intensity="0.8"></directionalLight>
+                <!-- chao-->
+                <transform translation="0 -3 0">
+                    <shape>
+                        <appearance>
+                            <ImageTexture  url="media/relva.jpeg"><ImageTexture/>
+                        </appearance>
+                        <box size="50 2 50"></box>
+                    </shape>
+                </transform>
+
+
+
+                <!-- estrada1 -->
+                <transform translation="0 -2.4 -2">
+                    <shape>
+                        <appearance>
+                            <ImageTexture  url="media/concreto.jpeg"><ImageTexture/>
+                        </appearance>
+                        <box size="10 1 2"></box>
+                    </shape>
+                </transform>  
+
+                <!-- estrada2 -->
+                <transform translation="10 -2.4 -2">
+                    <shape>
+                        <appearance>
+                            <ImageTexture  url="media/concreto.jpeg"><ImageTexture/>
+                        </appearance>
+                        <box size="10 1 2"></box>
+                    </shape>
+                </transform>  
+
+
+                <!-- estrada3 -->
+                <transform translation="20 -2.4 -2">
+                    <shape>
+                        <appearance>
+                            <ImageTexture  url="media/concreto.jpeg"><ImageTexture/>
+                        </appearance>
+                        <box size="10 1 2"></box>
+                    </shape>
+                </transform> 
+
+                <!-- estrada4 -->
+                <transform translation="-10 -2.4 -2">
+                    <shape>
+                        <appearance>
+                            <ImageTexture  url="media/concreto.jpeg"><ImageTexture/>
+                        </appearance>
+                        <box size="10 1 2"></box>
+                    </shape>
+                </transform>
+
+                <!-- estrada5 -->
+                <transform translation="-20 -2.4 -2">
+                    <shape>
+                        <appearance>
+                            <ImageTexture  url="media/concreto.jpeg"><ImageTexture/>
+                        </appearance>
+                        <box size="10 1 2"></box>
+                    </shape>
+                </transform>
+                <!-- passeio 1 -->
+                <transform translation="3.5 -2 -2">
+                    <shape>
+                        <appearance>
+                            <ImageTexture  url="media/passeio.jpeg"><ImageTexture/>
+                        </appearance>
+                        <box size="5 1 2"></box>
+                    </shape>
+                </transform>                 
+
+
+                <!-- Casa 1 -->
+                <transform translation="-5 -1 5">
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.4 0.4 0.4"></material>
+                        </appearance>
+                        <box size="4 4 4"></box>
+                    </shape>
+                    <!-- Telhado -->
+                    <transform translation="0 2.5 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.1 0.1 0.1"></material>
+                            </appearance>
+                            <cone bottomRadius="3" height="1"></cone>
+                        </shape>
+                    </transform>
+                    <!-- Janelas -->
+                    <transform translation="-1.5 1 2.1">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.3 0.7 1"></material>
+                            </appearance>
+                            <box size="1 1 0.1"></box>
+                        </shape>
+                    </transform>
+                    <transform translation="1.5 1 2.1">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.3 0.7 1"></material>
+                            </appearance>
+                            <box size="1 1 0.1"></box>
+                        </shape>
+                    </transform>
+                    <!-- Porta -->
+                    <transform translation="0 0 2.1">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.6 0.3 0.1"></material>
+                            </appearance>
+                            <box size="1 2 0.1"></box>
+                        </shape>
+                    </transform>
+                </transform>
+
+                <!-- Casa 2 -->
+                <transform translation="5 -1 5">
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.4 0.4 0.4"></material>
+                        </appearance>
+                        <box size="4 4 4"></box>
+                    </shape>
+                    <!-- Telhado -->
+                    <transform translation="0 2.5 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.1 0.1 0.1"></material>
+                            </appearance>
+                            <cone bottomRadius="3" height="1"></cone>
+                        </shape>
+                    </transform>
+                    <!-- Janelas -->r
+                    <transform translation="-1.5 1 2.1">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.3 0.7 1"></material>
+                            </appearance>
+                            <box size="1 1 0.1"></box>
+                        </shape>
+                    </transform>
+                    <transform translation="1.5 1 2.1">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.3 0.7 1"></material>
+                            </appearance>
+                            <box size="1 1 0.1"></box>
+                        </shape>
+                    </transform>
+                    <!-- Porta -->
+                    <transform translation="0 0 2.1">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.6 0.3 0.1"></material>
+                            </appearance>
+                            <box size="1 2 0.1"></box>
+                        </shape>
+                    </transform>
+                </transform>
+
+                <!-- Árvore 1 -->
+                <transform translation="10 -1 10">
+                    <!-- Tronco -->
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.6 0.4 0.2"></material>
+                        </appearance>
+                        <cylinder height="3" radius="0.3"></cylinder>
+                    </shape>
+                    <!-- Folhas -->
+                    <transform translation="0 2 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0 0.8 0"></material>
+                            </appearance>
+                            <sphere radius="1.5"></sphere>
+                        </shape>
+                    </transform>
+                </transform>
+
+
+                <!-- Árvore 2 -->
+                <transform translation="-10 -1 -10">
+                    <!-- Tronco -->
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.6 0.4 0.2"></material>
+                        </appearance>
+                        <cylinder height="3" radius="0.3"></cylinder>
+                    </shape>
+                    <!-- Folhas -->
+                    <transform translation="0 2 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0 0.8 0"></material>
+                            </appearance>
+                            <sphere radius="1.5"></sphere>
+                        </shape>
+                    </transform>
+                </transform>
+
+                <!-- Árvore 3 -->
+                <transform translation="10 -1 -10">
+                    <!-- Tronco -->
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.6 0.4 0.2"></material>
+                        </appearance>
+                        <cylinder height="3" radius="0.3"></cylinder>
+                    </shape>
+                    <!-- Folhas -->
+                    <transform translation="0 2 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0 0.8 0"></material>
+                            </appearance>
+                            <sphere radius="1.5"></sphere>
+                        </shape>
+                    </transform>
+                </transform>
+
+                <!-- Árvore 4 -->
+                <transform translation="-10 -1 10">
+                    <!-- Tronco -->
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.6 0.4 0.2"></material>
+                        </appearance>
+                        <cylinder height="3" radius="0.3"></cylinder>
+                    </shape>
+                    <!-- Folhas -->
+                    <transform translation="0 2 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0 0.8 0"></material>
+                            </appearance>
+                            <sphere radius="1.5"></sphere>
+                        </shape>
+                    </transform>
+                </transform>
+
+                <!-- Modelo da figura (grua) -->
+                <transform DEF="Grua">
+                    <transform DEF="Base">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="1 1 0"></material>
+                            </appearance>
+                            <box size="0.5 6 0.5"></box>
+                        </shape>
+                    </transform>
+
+                    <transform DEF="Braço" translation="0.8 2.25 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="1 1 0"></material>
+                            </appearance>
+                            <box size="3 0.5 0.5"></box>
+                        </shape>
+                    </transform>
+
+                    <transform DEF="Gancho" translation="2 1 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0 0 0"></material>
+                            </appearance>
+                            <box size="0.2 2 0.2"></box>
+                        </shape>
+                    </transform>
+                    <transform DEF="ferro" translation="2 0.06 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor="0.6 0.6 0.6"></material>
+                            </appearance>
+                            <box size="1.5 0.2 1.5"></box>
+                        </shape>
+                    </transform>
+
+                    <transform DEF="PESO" translation="2 -0.14 0">
+                        <shape>
+                            <appearance>
+                                <ImageTexture  url="media/passeio.jpeg"><ImageTexture/>
+                            </appearance>
+                            <box size="2 0.2 3"></box>
+                        </shape>
+                    </transform>
+                </transform>
+
+                <!-- Animação de rotação -->
+                <timeSensor DEF="Tempo" cycleInterval="5" loop="true"></timeSensor>
+                <orientationInterpolator DEF="RotacaoGrua" key="0 0.5 1" keyValue="0 1 0 0  0 1 0 3.14  0 1 0 6.28"></orientationInterpolator>
+                <route fromNode="Tempo" fromField="fraction_changed" toNode="RotacaoGrua" toField="set_fraction"></route>
+                <route fromNode="RotacaoGrua" fromField="value_changed" toNode="Grua" toField="set_rotation"></route>
+            </scene>
+        </x3d>
+    </div>
+</body>
+</html>
