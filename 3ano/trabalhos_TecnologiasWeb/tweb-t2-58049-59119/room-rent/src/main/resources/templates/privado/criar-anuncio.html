@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Anúncio - Room Rent</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <a href="/" class="logo-link">
+                <img src="/images/logo.png" alt="Logo" class="logo">
+            </a>
+
+            <nav>
+                <ul>
+                    <li class="active"><a href="/">Início</a></li>
+                    <li><a href="/ofertas">Ofertas</a></li>
+                    <li><a href="/procuras">Procuras</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/meus-anuncios">Gerir Anúncios</a>
+                    </li>
+                    <li sec                   
+                    <li sec:authorize="!isAuthenticated()">
+                        <a href="/login">Entrar</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/mensagens">Mensagens</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post" style="display:inline;">
+                            <button type="submit" style="background:none; border:none; color:white; font-weight:500; text-transform:uppercase; cursor:pointer; font-size:16px; font-family: inherit;">Sair</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>  
+    </header>
+
+    <div class="page">
+        <h1>Publicar Novo Anúncio</h1>
+
+        <form th:action="@{/anuncio/novo}" method="post">
+            
+            <div>
+                <label>Finalidade</label>
+                <select name="tipoAnuncio" class="input-field">
+                    <option value="OFERTA" th:selected="${param.tipo == null or param.tipo[0] == 'OFERTA'}">Oferecer (Tenho um alojamento)</option>
+                    <option value="PROCURA" th:selected="${param.tipo != null and param.tipo[0] == 'PROCURA'}">Procurar (Busco um alojamento)</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Tipo de Alojamento</label>
+                <select name="tipoAlojamento" class="input-field">
+                    <option value="Quarto">Quarto</option>
+                    <option value="T0">Estúdio (T0)</option>
+                    <option value="T1">Apartamento T1</option>
+                    <option value="T2">Apartamento T2</option>
+                    <option value="T3">Apartamento T3</option>
+                    <option value="T4">Apartamento T4</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Localização (Zona)</label>
+                <input type="text" name="zona" class="input-field" required placeholder="Ex: Évora (Centro Histórico)" />
+            </div>
+
+            <div>
+                <label>Preço Mensal (€)</label>
+                <input type="number" name="preco" step="0.01" class="input-field" required placeholder="0.00" />
+            </div>
+
+            <div>
+                <label>Género Alvo</label>
+                <select name="generoAlvo" class="input-field">
+                    <option value="Indiferente">Indiferente</option>
+                    <option value="Masculino">Apenas Rapazes</option>
+                    <option value="Feminino">Apenas Raparigas</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Descrição</label>
+                <textarea name="descricao" rows="4" class="input-field" required placeholder="Descreva as condições..."></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn secondary" onclick="location.href='/meus-anuncios'">Cancelar</button>
+                <button type="submit" class="btn primary">Publicar Anúncio</button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div id="contactos" class="contactos">
+            <div class="contacto-header">
+                <img src="/images/logo.png" alt="Logo pequeno" class="contacto-logo">
+            </div>
+            <p class="contacto-site"><a href="https://uevora.pt" target="_blank">Universidade de Évora</a></p>
+            <p class="contacto-copy">© 2026 Room Rent — Todos os direitos reservados</p>
+         </div>
+        <div class="creditos">
+            <p><strong>Trabalho realizado por:</strong></p>
+            <p>Francisco Rodrigues — L59119<br>Diogo Tavares — L58049</p>
+        </div>
+    </footer>
+</body>
+</html>

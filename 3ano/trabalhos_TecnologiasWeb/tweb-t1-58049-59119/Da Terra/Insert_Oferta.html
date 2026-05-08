@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Restaurante</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="navbar">
+            <a href="main.html" class="logo-link">
+                <img src="images/logo2.png" alt="Logo" class="logo">
+            </a>
+    
+            <nav>
+                <ul>
+                    <li><a href="main.html">Início</a></li>
+                    <li><a href="cliente.html">Área do Cliente</a></li>
+                    <li class="active"><a href="Insert_Oferta.html">Área do Restaurante</a></li>
+                    <li><a href="#contactos">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page">
+        <h1>Área do Restaurante</h1>
+        <h2>Inserir Nova Oferta</h2>
+        <form action="https://magno.di.uevora.pt/tweb/t1/oferta/insert" method="POST">
+            <div>
+                <label for="nome">Nome</label>
+                <input class="input-field" type="text" id="nome" name="nome" required>
+            </div>
+
+            <div>
+                <label for="restaurante_id">Id do Restaurante</label>
+                <input class="input-field" type="number" id="restaurante_id" name="restaurante_id" required>
+            </div>
+
+            <div>
+                <label for="descricao">Descricao</label>
+                <textarea class="input-field" id="descricao" name="descricao" rows="2" required></textarea>
+            </div>
+
+            <div>
+                <label for="unidades">Nº Doses</label>
+                <input class="input-field" type="number" id="unidades" name="unidades" required>
+            </div>
+
+            <div>
+                <label for="foto">Foto (URL)</label>
+                <input class="input-field" type="url" id="foto" name="foto"
+                placeholder="Link direto para a imagem que representa a oferta." required>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn secondary" type="reset">Limpar</button>
+                <button class="btn primary" type="submit">Adicionar Oferta</button>
+            </div>
+        </form>
+    </div>
+
+<footer class="footer">
+    <div id="contactos" class="contactos">
+        <div class="contacto-header">
+            <img src="images/logo2.png" alt="Logo pequeno" class="contacto-logo">
+            <span class="contacto-nome">Da Terra Restaurante</span>
+        </div>
+
+        <p class="contacto-site">
+            <a href="https://uevora.pt" target="_blank">Universidade de Évora
+            </a>
+        </p>
+
+        <p class="contacto-emails">
+            <a href="mailto:l59119@alunos.uevora.pt">l59119@alunos.uevora.pt</a><br>
+            <a href="mailto:l58049@alunos.uevora.pt">l58049@alunos.uevora.pt</a>
+        </p>
+
+        <p class="contacto-copy">
+            © 2025 Da Terra — Todos os direitos reservados
+        </p>
+    </div>
+
+    <div class="creditos">
+        <p><strong>Trabalho realizado por:</strong></p>
+        <p>
+            Francisco Rodrigues — L59119<br>
+            Diogo Tavares — L58049
+        </p>
+    </div>
+</footer>
+<script src="scripts/Insert_Oferta.js"></script>
+</body>
+</html>

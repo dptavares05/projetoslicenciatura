@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes - Room Rent</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <a href="/" class="logo-link">
+                <img src="/images/logo.png" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/ofertas">Ofertas</a></li>
+                    <li><a href="/procuras">Procuras</a></li>
+                    
+                    <li sec:authorize="!isAuthenticated()">
+                        <a href="/login">Entrar</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/meus-anuncios">Gerir Anúncios</a>
+                    </li>                    
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/mensagens">Mensagens</a>
+                    </li>
+
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post" style="display:inline;">
+                            <button type="submit" style="background:none; border:none; color:white; font-weight:500; text-transform:uppercase; cursor:pointer; font-size:16px; font-family: inherit;">Sair</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>  
+    </header>
+
+    <div class="page">
+        <div style="margin-bottom: 20px;">
+            <a href="javascript:history.back()" class="link-voltar">&larr; Voltar atrás</a>
+        </div>
+
+        <div th:if="${param.enviada}" class="alert-sucesso">
+            A tua mensagem foi enviada com sucesso!
+        </div>
+
+        <h1 class="detalhes-header" th:text="${anuncio.tipoAlojamento} + ' em ' + ${anuncio.zona}">Título do Anúncio</h1>
+        
+        <div style="margin-bottom: 15px;">
+             <span th:if="${anuncio.estado == 'INATIVO'}" class="status-badge status-pendente">INATIVO</span>
+             <span th:if="${anuncio.estado == 'ATIVO'}" class="status-badge status-ativo">ATIVO</span>
+        </div>
+
+        <div class="preco-destaque">
+            € <span th:text="${anuncio.preco}">0.00</span> <span class="preco-small">/ mês</span>
+        </div>
+
+        <div th:if="${anuncio.mbEntidade != null}" class="mb-box">
+            <h3 style="margin-top:0;">Dados Multibanco</h3>
+            <div class="mb-dados">
+                <div>
+                    <small>Entidade</small><br>
+                    <span th:text="${anuncio.mbEntidade}">12345</span>
+                </div>
+                <div>
+                    <small>Referência</small><br>
+                    <span th:text="${anuncio.mbReferencia}">123 456 789</span>
+                </div>
+                <div>
+                    <small>Valor</small><br>
+                    <span th:text="${anuncio.mbValor}">10.00</span> €
+                </div>
+            </div>
+        </div>
+        <div class="info-grid">
+            <div class="info-item">
+                <label>Finalidade</label>
+                <span th:text="${anuncio.tipoAnuncio}">OFERTA</span>
+            </div>
+            <div class="info-item">
+                <label>Género Preferido</label>
+                <span th:text="${anuncio.generoAlvo}">Indiferente</span>
+            </div>
+            <div class="info-item">
+                <label>Publicado por</label>
+                <span th:text="${anuncio.anunciante.nome}">Nome</span>
+            </div>
+            <div class="info-item">
+                <label>Data de Publicação</label>
+                <span th:text="${#temporals.format(anuncio.dataRegisto, 'dd/MM/yyyy')}">Data</span>
+            </div>
+        </div>
+
+        <h3>Descrição Detalhada</h3>
+        <p class="descricao-texto" th:text="${anuncio.descricao}">
+            Descrição do anúncio...
+        </p>
+
+        <div class="divider"></div>
+
+        <h3>Entrar em Contacto</h3>
+
+        <div sec:authorize="!isAuthenticated()" class="login-aviso">
+            <p>Precisas de estar autenticado para ver o contacto ou enviar mensagens.</p>
+            <button class="btn primary" onclick="location.href='/login'">Fazer Login</button>
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            
+            <div class="contacto-box">
+                Contacto direto: <strong><span th:text="${anuncio.anunciante.contacto}">910000000</span></strong>
+            </div>
+
+            <div th:if="${#authentication.name == anuncio.anunciante.email}" class="login-aviso">
+                <p><strong>Este é o teu próprio anúncio.</strong></p>
+                <button class="btn secondary" onclick="location.href='/meus-anuncios'">Gerir Meus Anúncios</button>
+            </div>
+
+            <div th:unless="${#authentication.name == anuncio.anunciante.email}">
+                <p>Ou envia uma mensagem pela plataforma:</p>
+                
+                <form th:action="@{/anuncio/{id}/enviar-mensagem(id=${anuncio.id})}" method="post">
+                    <div>
+                        <textarea name="texto" class="input-field" rows="5" required 
+                                  placeholder="Escreve aqui a tua mensagem..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">Enviar Mensagem ✉️</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div id="contactos" class="contactos">
+            <div class="contacto-header">
+                <img src="/images/logo.png" alt="Logo pequeno" class="contacto-logo">
+            </div>
+            <p class="contacto-site"><a href="https://uevora.pt" target="_blank">Universidade de Évora</a></p>
+            <p class="contacto-emails">
+                <a href="mailto:l59119@alunos.uevora.pt">l59119@alunos.uevora.pt</a><br>
+                <a href="mailto:l58049@alunos.uevora.pt">l58049@alunos.uevora.pt</a>
+            </p>
+            <p class="contacto-copy">© 2025 Da Terra — Todos os direitos reservados</p>
+        </div>
+        <div class="creditos">
+            <p><strong>Trabalho realizado por:</strong></p>
+            <p>Francisco Rodrigues — L59119<br>Diogo Tavares — L58049</p>
+        </div>
+    </footer>
+
+</body>
+</html>

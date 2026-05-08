@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Restaurantes</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="navbar">
+            <a href="main.html" class="logo-link">
+                <img src="images/logo2.png" alt="Logo" class="logo">
+            </a>
+    
+            <nav>
+                <ul>
+                    <li><a href="main.html">Início</a></li>
+                    <li><a href="cliente.html">Área do Cliente</a></li>
+                    <li><a href="Insert_Oferta.html">Área do Restaurante</a></li>
+                    <li><a href="#contactos">Contactos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page">
+        <h1>Administração – Restaurantes</h1>
+
+        <p>Lista completa de restaurantes (dados de administrador), com filtro local por nome ou morada.</p>
+
+        <!-- Campo de pesquisa -->
+        <div class="search-container">
+            <input type="text" id="pesquisa-restaurantes-admin" class="search-field"
+            placeholder="Procurar por nome ou morada...">
+        </div>
+
+        <p id="estado-restaurantes-admin">A carregar restaurantes...</p>
+        <!-- Tabela de resultados -->
+        <div class="tabela-container">
+            <table class="tabela-admin">
+                <!-- Atributos dos Restaurantes-->
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Morada</th>
+                        <th>Cód. Postal</th>
+                        <th>Lat</th>
+                        <th>Long</th>
+                        <th>Proprietário</th>
+                        <th>Data de Registro</th>
+                    </tr>
+                </thead>
+                <!--Restaurantes-->
+                <tbody id="tabela-restaurantes-admin">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div id="contactos" class="contactos">
+        <div class="contacto-header">
+            <img src="images/logo2.png" alt="Logo pequeno" class="contacto-logo">
+            <span class="contacto-nome">Da Terra Restaurante</span>
+        </div>
+
+        <p class="contacto-site">
+            <a href="https://uevora.pt" target="_blank">Universidade de Évora
+            </a>
+        </p>
+
+        <p class="contacto-emails">
+            <a href="mailto:l59119@alunos.uevora.pt">l59119@alunos.uevora.pt</a><br>
+            <a href="mailto:l58049@alunos.uevora.pt">l58049@alunos.uevora.pt</a>
+        </p>
+
+        <p class="contacto-copy">
+            © 2025 Da Terra — Todos os direitos reservados
+        </p>
+    </div>
+
+    <div class="creditos">
+        <p><strong>Trabalho realizado por:</strong></p>
+        <p>
+            Francisco Rodrigues — L59119<br>
+            Diogo Tavares — L58049
+        </p>
+    </div>
+</footer>
+<script src="scripts/List_Restaurantes_Admin.js"></script>
+</body>
+
+</html>

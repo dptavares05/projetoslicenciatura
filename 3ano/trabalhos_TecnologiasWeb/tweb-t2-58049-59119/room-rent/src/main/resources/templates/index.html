@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Rent - Início</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <a href="/" class="logo-link">
+                <img src="/images/logo.png" alt="Logo" class="logo">
+            </a>
+
+            <nav>
+                <ul>
+                    <li class="active"><a href="/">Início</a></li>
+                    <li><a href="/ofertas">Ofertas</a></li>
+                    <li><a href="/procuras">Procuras</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/meus-anuncios">Gerir Anúncios</a>
+                    </li>
+                    <li sec                   
+                    <li sec:authorize="!isAuthenticated()">
+                        <a href="/login">Entrar</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/mensagens">Mensagens</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post" style="display:inline;">
+                            <button type="submit" style="background:none; border:none; color:white; font-weight:500; text-transform:uppercase; cursor:pointer; font-size:16px; font-family: inherit;">Sair</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>  
+    </header>
+
+    <div class="page">
+        <h1>Bem-vindo ao Room Rent</h1>
+        <h2>Alojamento para Estudantes</h2>
+        <p>
+            O <strong>Room Rent</strong> é um sistema feito para facilitar a vida aos estudantes.<br>
+            Aqui podes encontrar quartos disponíveis ou publicar que estás à procura de casa.
+        </p>
+    </div>
+
+    <div class="page">
+        <h2 style="color: #0a4afa; margin-bottom: 20px;">Últimas Ofertas de Alojamento Disponíveis</h2>
+        
+        <div class="ofertas-lista">
+            <p th:if="${#lists.isEmpty(listaOfertas)}" style="color:#777;">Ainda não há ofertas recentes.</p>
+
+            <div th:each="anuncio : ${listaOfertas}" class="oferta-card">
+                <div class="oferta-conteudo">
+                    <h3 class="oferta-nome" th:text="${anuncio.tipoAlojamento} + ' em ' + ${anuncio.zona}">Título</h3>
+                    <p class="oferta-descricao">
+                        <strong style="color: #28a745;">€ <span th:text="${anuncio.preco}">0</span></strong> / mês<br>
+                        <span th:text="${anuncio.descricao}">Descrição...</span>
+                    </p>
+                    <div class="oferta-acoes">
+                        <a th:href="@{/anuncio/{id}(id=${anuncio.id})}" class="btn primary" style="padding: 8px 16px; font-size: 14px;">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="/ofertas" style="font-weight: bold; color: #0a4afa; text-decoration: none;">Ver mais ofertas &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <h2 style="color: #0a4afa; margin-bottom: 20px;"> Últimos Anúncios de Estudantes à Procura de Alojamento</h2>
+        
+        <div class="ofertas-lista">
+            <p th:if="${#lists.isEmpty(listaProcuras)}" style="color:#777;">Ainda não há procuras recentes.</p>
+
+            <div th:each="anuncio : ${listaProcuras}" class="oferta-card" style="border-left: 5px solid #ffc107;"> 
+                <div class="oferta-conteudo">
+                    <h3 class="oferta-nome" th:text="'Procura: ' + ${anuncio.tipoAlojamento}">Procura</h3>
+                    <p class="oferta-descricao">
+                        <strong>Zona:</strong> <span th:text="${anuncio.zona}">Centro</span><br>
+                        <strong>Orçamento Máx:</strong> € <span th:text="${anuncio.preco}">0</span>
+                    </p>
+                    <div class="oferta-acoes">
+                        <a th:href="@{/anuncio/{id}(id=${anuncio.id})}" class="btn secondary" style="padding: 8px 16px; font-size: 14px;">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="/procuras" style="font-weight: bold; color: #0a4afa; text-decoration: none;">Ver mais procuras &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+        <div id="contactos" class="contactos">
+            <div class="contacto-header">
+                <img src="/images/logo.png" alt="Logo pequeno" class="contacto-logo">
+            </div>
+            <p class="contacto-site"><a href="https://uevora.pt" target="_blank">Universidade de Évora</a></p>
+            <p class="contacto-emails">
+                <a href="mailto:l59119@alunos.uevora.pt">l59119@alunos.uevora.pt</a><br>
+                <a href="mailto:l58049@alunos.uevora.pt">l58049@alunos.uevora.pt</a>
+            </p>
+            <p class="contacto-copy">© 2026 Room Rent — Todos os direitos reservados</p>
+        </div>
+
+        <div class="creditos">
+            <p><strong>Trabalho realizado por:</strong></p>
+            <p>Francisco Rodrigues — L59119<br>Diogo Tavares — L58049</p>
+
+            <div sec:authorize="hasRole('ADMIN')" style="margin-top: 15px; border-top: 1px solid #ccc; padding-top: 10px;">
+                <a href="/admin" style="color: #af0000; font-weight: bold; text-decoration: none; font-size: 0.9em;">Área de Administração</a>
+            </div>
+            
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,642 @@
+/* ================================
+   CONFIGURAÇÃO GLOBAL
+================================ */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #2d2d2d;
+
+    background-image: url("images/azulejo.jpg");
+    background-size: 600px;
+    background-repeat: repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================================
+  PAGINA PRINCIPAL
+================================ */
+
+.page {
+    max-width: 760px;
+    width: 90%;
+    margin: 48px auto 120px auto;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 110, 255, 0.15);
+    font-size: 20px;
+    border-style: solid;
+    border-color: rgb(0, 102, 255);
+    border-width: 0.2em;
+    flex: 1;
+}
+
+
+/* ================================
+   INPUTS E CAMPOS
+================================ */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #3a3a3a;
+}
+
+.input-field {
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    border-radius: 30px;
+    padding: 14px 18px;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.input-field:focus {
+    border-color: #1583c7;
+    box-shadow: 0 0 0 3px rgba(21, 104, 199, 0.18);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* ================================
+   BOTÕES
+================================ */
+
+.btn {
+    border: none;
+    border-radius: 1em;
+    padding: 12px 26px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: #5d6fe7;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn.primary:hover {
+    transform: scale(1.1);
+    background: #4055dc;
+
+}
+
+.btn.secondary {
+    background: #ececec;
+    color: #3a3a3a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn.secondary:hover {
+    transform: scale(1.1);
+    background: #d6d6d6;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(90deg, rgba(10, 74, 250, 1) 0%, rgba(32, 239, 254, 0.8) 50%, rgba(10, 74, 250, 1) 100%);
+    border-radius: 0 0 1.5em 1.5em;
+}
+
+/* barra interna do header */
+.header .navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* logo */
+.header .logo {
+    height: 50px;
+    width: auto;
+    cursor: pointer;
+    display: block;
+}
+
+/* lista de navegação */
+.header nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* sublinhado animado */
+.header nav ul li::after {
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #042bd6;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.3s;
+}
+
+.header nav ul li:hover::after,
+.header nav ul li.active::after {
+    width: 100%;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+    background: linear-gradient(90deg, rgba(10, 74, 250, 1) 0%, rgba(32, 239, 254, 0.8) 50%, rgba(10, 74, 250, 1) 100%);
+    color: #fff;
+    padding: 14px 24px;
+    /* versão compacta */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* verticalmente centrado */
+    border-radius: 3em 3em 0 0;
+    /* menos “alto” nas pontas */
+    font-size: 14px;
+    /* texto ligeiramente menor */
+    gap: 16px;
+}
+
+/* ================================
+   CONTACTOS
+================================ */
+.contactos {
+    text-align: left;
+    max-width: 50%;
+}
+
+.contacto-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.contacto-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: none;
+}
+
+.contacto-nome {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* textos mais compactos */
+.contacto-copy,
+.contacto-site,
+.contacto-emails {
+    margin: 2px 0;
+    font-size: 13px;
+}
+
+.contacto-site a {
+    color: #af0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contacto-emails a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contacto-emails a:hover,
+.contacto-site:hover,
+.creditos a:hover {
+    font-size: 1.1em;
+    text-decoration: underline;
+}
+
+/* CRÉDITOS (direita) */
+.creditos {
+    text-align: right;
+    max-width: 50%;
+}
+
+.creditos p {
+    margin: 2px 0;
+    font-size: 13px;
+}
+
+.creditos a {
+    color: #b90000;
+    text-decoration: none;
+}
+
+/* ================================
+   PARTE RESPONSIVA DO FOOTER
+================================ */
+@media (max-width: 700px) {
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        border-radius: 2em 2em 0 0;
+    }
+
+    .contactos,
+    .creditos {
+        max-width: 100%;
+        text-align: left;
+    }
+}
+
+/* ================================
+   OFERTAS
+================================ */
+
+.ofertas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.oferta-card {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    align-items: flex-start;
+    background: #ffffff;
+}
+
+.oferta-imagem {
+    width: 180px;
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #f0f0f0;
+}
+
+.oferta-conteudo {
+    flex: 1;
+}
+
+.oferta-nome {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0a4afa;
+}
+
+.oferta-descricao {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.oferta-acoes {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+/* ================================
+   BARRA DE PESQUISA
+================================ */
+
+.search-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-field {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    margin: 0 auto;
+    display: block;
+    max-width: 400px;
+    outline: none;
+}
+
+.search-field:focus {
+    border-color: #0a4afa;
+    box-shadow: 0 0 0 3px rgba(21, 104, 199, 0.2);
+}
+
+/* ================================
+   TABELAS ADMIN
+================================ */
+
+.tabela-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.tabela-admin {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.tabela-admin th,
+.tabela-admin td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.tabela-admin thead {
+    background: #0a4afa;
+    color: white;
+}
+
+.tabela-admin tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ================================
+   PÁGINA DE DETALHES DOS ANUNCIOS
+================================ */
+
+.detalhes-header {
+    margin-bottom: 5px;
+    color: #0a4afa;
+}
+
+.preco-destaque {
+    font-size: 2.5em;
+    color: #28a745;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.preco-small {
+    font-size: 0.4em;
+    color: #666;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+}
+
+.info-item label {
+    display: block;
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.info-item span {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.descricao-texto {
+    line-height: 1.8;
+    color: #333;
+    font-size: 1.1em;
+    white-space: pre-wrap; /* Mantém os parágrafos do texto original */
+}
+
+.divider {
+    border-top: 2px solid #0a4afa;
+    margin: 30px 0;
+}
+
+.contacto-box {
+    background-color: #e3f2fd;
+    border: 1px solid #90caf9;
+    color: #0d47a1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.login-aviso {
+    text-align: center;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+.mb-box {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.mb-dados {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    flex-wrap: wrap; /* Para telemóveis */
+}
+
+/* ================================
+   CARDS DE ESTADO DOS ANUNCIOS
+================================ */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+.status-ativo { background-color: #28a745; } /* Verde */
+.status-pendente { background-color: #dc3545; } /* Vermelho */
+
+
+/* ================================
+   PAGINAÇÃO
+================================ */
+.paginacao-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.btn-page {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.btn-page:hover {
+    background-color: #e0e0e0;
+}
+
+/* ================================
+   Administração - Botões e dados de mbref
+================================ */
+.btn-action {
+    padding: 5px 10px;
+    font-size: 0.85em;
+    margin-right: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
+.btn-green { 
+    background-color: #28a745 !important;
+    padding: 6px 10px; 
+    font-size: 0.85em; 
+}
+.btn-green:hover { background-color: #218838 !important; }
+
+.btn-red { 
+    background-color: #dc3545 !important; 
+    padding: 6px 10px; 
+    font-size: 0.85em; 
+}
+.btn-red:hover { background-color: #c82333 !important; }
+
+.mb-data { font-size: 0.9em; color: #555; }
+
+/* ================================
+   MENSAGENS
+================================ */
+.tabela-mensagens { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+    background: white; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+}
+
+.tabela-mensagens th, 
+.tabela-mensagens td { 
+    padding: 15px; 
+    border-bottom: 1px solid #eee; 
+    text-align: left; 
+    vertical-align: top; 
+}
+
+.tabela-mensagens th { 
+    background-color: #0a4afa; 
+    color: white; 
+    font-weight: 500; 
+}
+
+.tabela-mensagens tr:hover { 
+    background-color: #f9f9f9; 
+}
+
+.msg-badge { 
+    background: #eee; 
+    color: #333; 
+    padding: 4px 8px; 
+    border-radius: 4px; 
+    font-size: 0.85em; 
+    font-weight: bold; 
+}
+
+.reply-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 5px; 
+}
+
+.reply-input { 
+    width: 100%; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    resize: vertical; 
+    font-family: inherit; 
+    font-size: 0.9em; 
+    box-sizing: border-box; 
+}
+
+.reply-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+.reply-btn:hover { 
+    background-color: #218838; 
+}

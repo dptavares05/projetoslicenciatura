@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Room Rent</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <a href="/" class="logo-link">
+                <img src="/images/logo.png" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li class="active"><a href="/">Início</a></li>
+                    <li><a href="/registar">Registar</a></li>
+                </ul>
+            </nav>
+        </div>  
+    </header>
+
+    <div class="page" style="max-width: 500px;">
+        <h1>Entrar na Conta</h1>
+        
+        <div th:if="${param.error != null and param.error[0] == 'bad_credentials'}" 
+             style="color: red; text-align: center; margin-bottom: 15px; background: #ffe6e6; padding: 10px; border-radius: 5px;">
+            Email ou password incorretos.
+        </div>
+
+        <div th:if="${param.error != null and param.error[0] == 'not_approved'}" 
+             style="color: #856404; text-align: center; margin-bottom: 15px; background: #fff3cd; padding: 10px; border-radius: 5px; border: 1px solid #ffeeba;">
+            <strong>Conta pendente!</strong><br>
+            O seu registo aguarda validação do administrador. Tente novamente mais tarde.
+        </div>
+        
+        <div th:if="${param.logout}" 
+             style="color: green; text-align: center; margin-bottom: 15px; background: #e6fffa; padding: 10px; border-radius: 5px;">
+            Saiu da conta com sucesso.
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <div>
+                <label for="username">Email</label>
+                <input class="input-field" type="email" id="username" name="username" required autofocus>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input class="input-field" type="password" id="password" name="password" required>
+            </div>
+            <div class="form-actions" style="justify-content: center;">
+                <button class="btn primary" type="submit">Entrar</button>
+            </div>
+        </form>
+        
+        <p style="text-align: center; margin-top: 20px;">
+            Ainda não tem conta? <a href="/registar">Registe-se aqui</a>.
+        </p>
+    </div>
+
+    <footer class="footer">
+        <div id="contactos" class="contactos">
+            <div class="contacto-header">
+                <img src="/images/logo.png" alt="Logo pequeno" class="contacto-logo">
+            </div>
+            <p class="contacto-site"><a href="https://uevora.pt" target="_blank">Universidade de Évora</a></p>
+            <p class="contacto-emails">
+                <a href="mailto:l59119@alunos.uevora.pt">l59119@alunos.uevora.pt</a><br>
+                <a href="mailto:l58049@alunos.uevora.pt">l58049@alunos.uevora.pt</a>
+            </p>
+            <p class="contacto-copy">© 2026 Room Rent — Todos os direitos reservados</p>
+        </div>
+        <div class="creditos">
+            <p><strong>Trabalho realizado por:</strong></p>
+            <p>Francisco Rodrigues — L59119<br>Diogo Tavares — L58049</p>
+        </div>
+    </footer>
+</body>
+</html>

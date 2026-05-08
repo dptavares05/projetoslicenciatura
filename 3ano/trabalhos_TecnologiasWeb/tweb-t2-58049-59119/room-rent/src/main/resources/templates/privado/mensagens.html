@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Mensagens - Room Rent</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <a href="/" class="logo-link">
+                <img src="/images/logo.png" alt="Logo" class="logo">
+            </a>
+
+            <nav>
+                <ul>
+                    <li class="active"><a href="/">Início</a></li>
+                    <li><a href="/ofertas">Ofertas</a></li>
+                    <li><a href="/procuras">Procuras</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/meus-anuncios">Gerir Anúncios</a>
+                    </li>
+                    <li sec                   
+                    <li sec:authorize="!isAuthenticated()">
+                        <a href="/login">Entrar</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/mensagens">Mensagens</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post" style="display:inline;">
+                            <button type="submit" style="background:none; border:none; color:white; font-weight:500; text-transform:uppercase; cursor:pointer; font-size:16px; font-family: inherit;">Sair</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>  
+    </header>
+
+    <div class="page">
+        <h1>Mensagens Recebidas</h1>
+
+        <div th:if="${param.sucesso}" style="background-color: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #c3e6cb;">
+            Resposta enviada!
+        </div>
+
+        <div th:if="${listaMensagens.isEmpty()}" style="text-align: center; color: #666; padding: 30px;">
+            <h4>Ainda não recebeste mensagens.</h4>
+        </div>
+
+        <div th:unless="${listaMensagens.isEmpty()}" style="overflow-x: auto;">
+            
+            <table class="tabela-mensagens">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Data / De</th>
+                        <th style="width: 20%;">Anúncio</th>
+                        <th style="width: 30%;">Mensagem Recebida</th>
+                        <th style="width: 35%;">Responder Rápido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="msg : ${listaMensagens}">
+                        <td>
+                            <strong th:text="${msg.remetente?.nome} ?: 'Desconhecido'" style="color: #0a4afa;">Nome</strong><br>
+                            <small style="color: #666;" th:text="${#temporals.format(msg.dataEnvio, 'dd/MM HH:mm')}">Data</small>
+                        </td>
+                        
+                        <td>
+                            <span class="msg-badge">
+                                <span th:text="${msg.anuncio?.tipoAlojamento}">Tipo</span> em 
+                                <span th:text="${msg.anuncio?.zona}">Zona</span>
+                            </span>
+                        </td>
+                        
+                        <td style="font-style: italic; color: #555;">
+                            "<span th:text="${msg.texto}">Texto...</span>"
+                        </td>
+                        
+                        <td>
+                            <form th:action="@{/mensagens/responder}" method="post" class="reply-form">
+                                <input type="hidden" name="mensagemOriginalId" th:value="${msg.id}" />
+                                <textarea name="textoResposta" class="reply-input" rows="2" placeholder="Escreve a tua resposta..." required></textarea>
+                                <button type="submit" class="reply-btn">Enviar ➤</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div id="contactos" class="contactos">
+            <div class="contacto-header">
+                <img src="/images/logo.png" alt="Logo pequeno" class="contacto-logo">
+            </div>
+            <p class="contacto-site"><a href="https://uevora.pt" target="_blank">Universidade de Évora</a></p>
+            <p class="contacto-emails">
+                <a href="mailto:l59119@alunos.uevora.pt">l59119@alunos.uevora.pt</a><br>
+                <a href="mailto:l58049@alunos.uevora.pt">l58049@alunos.uevora.pt</a>
+            </p>
+            <p class="contacto-copy">© 2026 Room Rent — Todos os direitos reservados</p>
+        </div>
+        <div class="creditos">
+            <p><strong>Trabalho realizado por:</strong></p>
+            <p>Francisco Rodrigues — L59119<br>Diogo Tavares — L58049</p>
+        </div>
+    </footer>
+
+</body>
+</html>

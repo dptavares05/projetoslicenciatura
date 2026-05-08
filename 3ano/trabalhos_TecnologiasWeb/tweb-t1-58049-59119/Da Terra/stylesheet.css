@@ -1,0 +1,457 @@
+/* ================================
+   CONFIGURAÇÃO GLOBAL
+================================ */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #2d2d2d;
+
+    background-image: url("images/azulejo.jpg");
+    background-size: 600px;
+    background-repeat: repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================================
+   CONTAINER PRINCIPAL
+================================ */
+
+.page {
+    max-width: 760px;
+    width: 90%;
+    margin: 48px auto 120px auto;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 110, 255, 0.15);
+    font-size: 20px;
+    border-style: solid;
+    border-color: rgb(0, 102, 255);
+    border-width: 0.2em;
+    flex: 1;
+}
+
+/* Página principal (MAIN MENU) */
+.page.MAIN {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 3em 5.875em;
+    flex-wrap: wrap;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    padding: 50px 50px;
+}
+
+.page.MAIN button {
+    width: 15em;
+    height: 4em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* ================================
+   INPUTS E CAMPOS
+================================ */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #3a3a3a;
+}
+
+.input-field {
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    border-radius: 30px;
+    padding: 14px 18px;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.input-field:focus {
+    border-color: #1583c7;
+    box-shadow: 0 0 0 3px rgba(21, 104, 199, 0.18);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* ================================
+   BOTÕES
+================================ */
+
+.btn {
+    border: none;
+    border-radius: 1em;
+    padding: 12px 26px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: #5d6fe7;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn.primary:hover {
+    transform: scale(1.1);
+    background: #4055dc;
+
+}
+
+.btn.secondary {
+    background: #ececec;
+    color: #3a3a3a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn.secondary:hover {
+    transform: scale(1.1);
+    background: #d6d6d6;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(90deg, rgba(10, 74, 250, 1) 0%, rgba(32, 239, 254, 0.8) 50%, rgba(10, 74, 250, 1) 100%);
+    border-radius: 0 0 1.5em 1.5em;
+}
+
+/* barra interna do header */
+.header .navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* logo */
+.header .logo {
+    height: 50px;
+    /* em vez dos 10em antigos */
+    width: auto;
+    cursor: pointer;
+    display: block;
+}
+
+/* lista de navegação */
+.header nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* sublinhado animado */
+.header nav ul li::after {
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #042bd6;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.3s;
+}
+
+.header nav ul li:hover::after,
+.header nav ul li.active::after {
+    width: 100%;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+    background: linear-gradient(90deg, rgba(10, 74, 250, 1) 0%, rgba(32, 239, 254, 0.8) 50%, rgba(10, 74, 250, 1) 100%);
+    color: #fff;
+    padding: 14px 24px;
+    /* versão compacta */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* verticalmente centrado */
+    border-radius: 3em 3em 0 0;
+    /* menos “alto” nas pontas */
+    font-size: 14px;
+    /* texto ligeiramente menor */
+    gap: 16px;
+}
+
+/* CONTACTOS (esquerda) */
+.contactos {
+    text-align: left;
+    max-width: 50%;
+}
+
+.contacto-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.contacto-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: none;
+}
+
+.contacto-nome {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* textos mais compactos */
+.contacto-copy,
+.contacto-site,
+.contacto-emails {
+    margin: 2px 0;
+    font-size: 13px;
+}
+
+.contacto-site a {
+    color: #af0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contacto-emails a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contacto-emails a:hover,
+.contacto-site:hover,
+.creditos a:hover {
+    font-size: 1.1em;
+    text-decoration: underline;
+}
+
+/* CRÉDITOS (direita) */
+.creditos {
+    text-align: right;
+    max-width: 50%;
+}
+
+.creditos p {
+    margin: 2px 0;
+    font-size: 13px;
+}
+
+.creditos a {
+    color: #b90000;
+    text-decoration: none;
+}
+
+/* Layout responsivo footer */
+@media (max-width: 700px) {
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        border-radius: 2em 2em 0 0;
+    }
+
+    .contactos,
+    .creditos {
+        max-width: 100%;
+        text-align: left;
+    }
+}
+
+/* ================================
+   OFERTAS
+================================ */
+
+.ofertas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.oferta-card {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    align-items: flex-start;
+    background: #ffffff;
+}
+
+.oferta-imagem {
+    width: 180px;
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #f0f0f0;
+}
+
+.oferta-conteudo {
+    flex: 1;
+}
+
+.oferta-nome {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0a4afa;
+}
+
+.oferta-descricao {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.oferta-acoes {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* ================================
+   RESTAURANTES
+================================ */
+
+.restaurante-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.restaurante-card {
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+
+
+.restaurante-nome {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0a4afa;
+}
+
+.restaurante-localizacao {
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+.restaurante-coords {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #777;
+}
+
+/* ================================
+   CAMPO DE PESQUISA
+================================ */
+
+.search-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-field {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    margin: 0 auto;
+    display: block;
+    max-width: 400px;
+    outline: none;
+}
+
+.search-field:focus {
+    border-color: #0a4afa;
+    box-shadow: 0 0 0 3px rgba(21, 104, 199, 0.2);
+}
+
+/* ================================
+   TABELAS ADMIN
+================================ */
+
+.tabela-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.tabela-admin {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.tabela-admin th,
+.tabela-admin td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.tabela-admin thead {
+    background: #0a4afa;
+    color: white;
+}
+
+.tabela-admin tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

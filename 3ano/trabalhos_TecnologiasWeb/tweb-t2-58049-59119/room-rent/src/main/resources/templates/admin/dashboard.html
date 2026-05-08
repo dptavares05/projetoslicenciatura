@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administração - Room Rent</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <a href="/" class="logo-link">
+                <img src="/images/logo.png" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Voltar ao Site</a></li>
+                    <li>
+                        <form th:action="@{/logout}" method="post" style="display:inline;">
+                            <button type="submit" style="background:none; border:none; color:white; font-weight:500; text-transform:uppercase; cursor:pointer; font-size:16px; font-family: inherit;">Sair</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>  
+    </header>
+
+    <div class="page">
+        <h1>Painel de Administração</h1>
+        <p>Validação de contas de utilizador e anúncios novos.</p>
+    </div>
+
+    <div class="page">
+        <h2 style="color: #0a4afa; margin-bottom: 20px;">Utilizadores Pendentes</h2>
+        
+        <p th:if="${#lists.isEmpty(pendentes)}" style="color: #666; font-style: italic;">
+            Não há utilizadores para aprovar.
+        </p>
+
+        <div th:unless="${#lists.isEmpty(pendentes)}" class="tabela-container">
+            <table class="tabela-admin">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Perfil</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="u : ${pendentes}">
+                        <td th:text="${u.nome}">Nome</td>
+                        <td th:text="${u.email}">Email</td>
+                        <td><span class="status-badge" style="background:#007bff; color:white; padding:2px 6px; border-radius:4px;">USER</span></td>
+                        <td>
+                            <form th:action="@{/admin/aprovar}" method="post">
+                                <input type="hidden" name="id" th:value="${u.id}"/>
+                                <button type="submit" class="btn primary btn-green" style="padding: 6px 12px;">Aprovar</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="page">
+        <h2 style="color: #0a4afa; margin-bottom: 20px;">Anúncios Pendentes</h2>
+        
+        <p th:if="${#lists.isEmpty(anunciosPendentes)}" style="color: #666; font-style: italic;">
+            Não há anúncios para aprovar.
+        </p>
+
+        <div th:unless="${#lists.isEmpty(anunciosPendentes)}" class="tabela-container">
+            <table class="tabela-admin">
+                <thead>
+                    <tr>
+                        <th>Anunciante</th>
+                        <th>Detalhes</th>
+                        <th>Preço</th>
+                        <th>Pagamento MB (Gerado)</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="anuncio : ${anunciosPendentes}">
+                        <td th:text="${anuncio.anunciante.nome}">João</td>
+                        
+                        <td>
+                            <strong th:text="${anuncio.tipoAnuncio}">OFERTA</strong><br>
+                            <span th:text="${anuncio.tipoAlojamento}">T1</span> em <span th:text="${anuncio.zona}">Évora</span>
+                        </td>
+                        
+                        <td style="font-weight: bold; color: #28a745;" th:text="${anuncio.preco} + ' €'">300 €</td>
+                        
+                        <td>
+                            <div th:if="${anuncio.mbEntidade != null}" class="mb-data">
+                                <strong>Ent:</strong> <span th:text="${anuncio.mbEntidade}">12345</span><br>
+                                <strong>Ref:</strong> <span th:text="${anuncio.mbReferencia}">123 456 789</span><br>
+                                <strong>Val:</strong> <span th:text="${anuncio.mbValor}">100.00</span> €
+                            </div>
+                            <div th:if="${anuncio.mbEntidade == null}">
+                                <span style="color:red; font-size:0.8em;">Dados n/a ou Erro API</span>
+                            </div>
+                        </td>
+
+                        <td style="white-space: nowrap;">
+                            <div style="display: flex; gap: 5px;">
+                                <a th:href="@{/anuncio/{id}(id=${anuncio.id})}" target="_blank" class="btn secondary" style="padding: 6px 10px; font-size: 0.85em;">
+                                    Ver
+                                </a>
+
+                                <form th:action="@{/admin/anuncio/estado}" method="post">
+                                    <input type="hidden" name="id" th:value="${anuncio.id}"/>
+                                    <input type="hidden" name="novoEstado" value="ATIVO"/>
+                                    <button type="submit" class="btn primary btn-green">
+                                        ✓
+                                    </button>
+                                </form>
+                                
+                                <form th:action="@{/admin/anuncio/estado}" method="post">
+                                    <input type="hidden" name="id" th:value="${anuncio.id}"/>
+                                    <input type="hidden" name="novoEstado" value="INATIVO"/>
+                                    <button type="submit" class="btn primary btn-red">
+                                        X
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div id="contactos" class="contactos">
+            <div class="contacto-header">
+                <img src="/images/logo.png" alt="Logo pequeno" class="contacto-logo">
+            </div>
+            <p class="contacto-site"><a href="https://uevora.pt" target="_blank">Universidade de Évora</a></p>
+            <p class="contacto-emails">
+                <a href="mailto:l59119@alunos.uevora.pt">l59119@alunos.uevora.pt</a><br>
+                <a href="mailto:l58049@alunos.uevora.pt">l58049@alunos.uevora.pt</a>
+            </p>
+            <p class="contacto-copy">© 2025 Da Terra — Todos os direitos reservados</p>
+        </div>
+        <div class="creditos">
+            <p><strong>Trabalho realizado por:</strong></p>
+            <p>Francisco Rodrigues — L59119<br>Diogo Tavares — L58049</p>
+        </div>
+    </footer>
+
+</body>
+</html>

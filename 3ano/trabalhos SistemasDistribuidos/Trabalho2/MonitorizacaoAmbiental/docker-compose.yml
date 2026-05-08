@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: sd_postgres
+    environment:
+      POSTGRES_DB: monitorizacao_db
+      POSTGRES_USER: sd_user
+      POSTGRES_PASSWORD: sd_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: sd_mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+       - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+volumes:
+  postgres_data:

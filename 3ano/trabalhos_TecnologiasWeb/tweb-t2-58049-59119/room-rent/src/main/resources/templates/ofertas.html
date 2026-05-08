@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Ofertas - Room Rent</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <a href="/" class="logo-link">
+                <img src="/images/logo.png" alt="Logo" class="logo">
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li class="active"><a href="/ofertas">Ofertas</a></li>
+                    <li><a href="/procuras">Procuras</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/meus-anuncios">Gerir Anúncios</a>
+                    </li>
+                    <li sec                   
+                    <li sec:authorize="!isAuthenticated()">
+                        <a href="/login">Entrar</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href="/mensagens">Mensagens</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post" style="display:inline;">
+                            <button type="submit" style="background:none; border:none; color:white; font-weight:500; text-transform:uppercase; cursor:pointer; font-size:16px; font-family: inherit;">Sair</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>  
+    </header>
+
+    <div class="page">
+        <h1>Ofertas de Alojamento</h1>
+
+        <div style="margin: 20px 0; text-align: right;">
+            <button sec:authorize="isAuthenticated()" class="btn primary" onclick="location.href='/anuncio/novo?tipo=OFERTA'">+ Publicar Oferta</button>
+            <button sec:authorize="!isAuthenticated()" class="btn secondary" onclick="location.href='/login'">Entrar para Publicar</button>
+        </div>
+
+        <div class="search-container">
+            <form th:action="@{/ofertas}" method="get">
+                <input type="text" name="keyword" class="search-field" 
+                       placeholder="Pesquisar por zona ou tipo..." 
+                       th:value="${param.keyword}">
+            </form>
+        </div>
+
+        <div class="ofertas-lista">
+            <p th:if="${listaOfertas.totalElements == 0}" style="text-align:center; color:#666;">
+                Nenhuma oferta encontrada.
+            </p>
+
+            <div th:each="anuncio : ${listaOfertas}" class="oferta-card">
+                <div class="oferta-conteudo">
+                    <h3 class="oferta-nome" th:text="${anuncio.tipoAlojamento} + ' em ' + ${anuncio.zona}">Título</h3>
+                    <p class="oferta-descricao">
+                        <strong style="color: #28a745;">€ <span th:text="${anuncio.preco}">0</span></strong> / mês<br>
+                        <strong>Tipo:</strong> <span th:text="${anuncio.tipoAnuncio}">OFERTA</span><br>
+                        <span th:text="${anuncio.descricao}">Descrição...</span>
+                    </p>
+                    <div class="oferta-acoes">
+                        <a th:href="@{/anuncio/{id}(id=${anuncio.id})}" class="btn primary">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="paginacao-container" th:if="${listaOfertas.totalPages > 1}">
+            
+            <a th:if="${listaOfertas.hasPrevious()}" 
+               th:href="@{/ofertas(page=${listaOfertas.number - 1}, keyword=${param.keyword})}"
+               class="btn-page">
+               &larr; Anterior
+            </a>
+
+            <span>Página <strong>[[${listaOfertas.number + 1}]]</strong> de [[${listaOfertas.totalPages}]]</span>
+
+            <a th:if="${listaOfertas.hasNext()}" 
+               th:href="@{/ofertas(page=${listaOfertas.number + 1}, keyword=${param.keyword})}"
+               class="btn-page">
+               Próximo &rarr;
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div id="contactos" class="contactos">
+            <div class="contacto-header">
+                <img src="/images/logo.png" alt="Logo pequeno" class="contacto-logo">
+            </div>
+            <p class="contacto-site"><a href="https://uevora.pt" target="_blank">Universidade de Évora</a></p>
+            <p class="contacto-emails">
+                <a href="mailto:l59119@alunos.uevora.pt">l59119@alunos.uevora.pt</a><br>
+                <a href="mailto:l58049@alunos.uevora.pt">l58049@alunos.uevora.pt</a>
+            </p>
+            <p class="contacto-copy">© 2026 Room Rent — Todos os direitos reservados</p>
+        </div>
+        <div class="creditos">
+            <p><strong>Trabalho realizado por:</strong></p>
+            <p>Francisco Rodrigues — L59119<br>Diogo Tavares — L58049</p>
+        </div>
+    </footer>
+</body>
+</html>

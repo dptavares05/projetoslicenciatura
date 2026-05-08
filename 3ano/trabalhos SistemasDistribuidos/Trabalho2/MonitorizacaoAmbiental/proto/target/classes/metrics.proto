@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+// 1. Definições para o Java saber onde gerar o código
+package pt.uevora.sd.grpc;
+option java_multiple_files = true;
+option java_package = "pt.uevora.sd.grpc";
+option java_outer_classname = "MetricsProto";
+
+// 2. O Serviço (As funções que o Servidor oferece)
+service MetricsService {
+  // Função: "Enviar Métrica". Recebe um pedido, devolve uma resposta.
+  rpc SubmitMetric (MetricRequest) returns (MetricResponse);
+}
+
+// 3. A Mensagem de Pedido (O que o Sensor envia)
+message MetricRequest {
+  string deviceId = 1;     // ID do sensor (ex: "SensorSala1")
+  double temperature = 2;  // Valor da temperatura (ex: 22.5)
+  double humidity = 3;     // Valor da humidade (ex: 60.0)
+  string timestamp = 4;    // Data e hora
+}
+
+// 4. A Mensagem de Resposta (O que o Servidor responde)
+message MetricResponse {
+  string message = 1;      // Ex: "Recebido com sucesso!"
+}
