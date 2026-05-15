@@ -30,9 +30,8 @@ Este repositório serve como o meu **Portfólio de Engenharia**, reunindo os pro
 
 | Categoria | Projeto | Descrição |
 | :--- | :--- | :--- |
-| **Backend** | [Eventastic](./2ano/Eventastic) | Sistema modular em Java/Spring Boot para gestão de eventos e lógica de inscrições. |
+| **Web Dev** | [Da Terra](./2ano/DaTerra) | Plataforma anti-desperdício alimentar full stack (HTML/JS) com integração de API REST. |
 | **Data Science** | [Brain Tumor Prediction](./3ano/trabalhos_MachineLearning) | Modelos de ML (Decision Trees, SVM) para diagnóstico médico via Kaggle. |
-| **Web Dev** | [Da Terra](./2ano/DaTerra) | Plataforma anti-desperdício alimentar (HTML/JS) com integração de API REST. |
 | **Algoritmia** | [EDA 2 Collection](./2ano/EDA2) | Implementações de algoritmos como Edmonds-Karp, Programação Dinâmica e BFS em grafos. |
 | **Low Level** | [Image De-noising](./1ano/trabalho_arquiteturaComputadores) | Processamento de imagem (filtros média/mediana) escrito em Assembly RISC-V. |
 | **Jogos** | [Guru & Ouri](./1ano) | Implementação de lógica de jogo, dicionários e persistência em Java e C. |
