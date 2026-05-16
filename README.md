@@ -30,7 +30,8 @@ Este repositório serve como o meu **Portfólio de Engenharia**, reunindo os pro
 
 | Categoria | Projeto | Descrição |
 | :--- | :--- | :--- |
-| **Web Dev** | [Da Terra](./2ano/DaTerra) | Plataforma anti-desperdício alimentar full stack (HTML/JS) com integração de API REST. |
+| **Web App** | [Da Terra](./2ano/DaTerra) | Plataforma anti-desperdício alimentar full stack (HTML/JS) com integração de API REST. |
+| **Backend** | [Eventastic](https://github.com/dptavares05/eventastic) | Sistema modular em Java/Spring Boot para gestão de eventos e lógica de inscrições. |
 | **Data Science** | [Brain Tumor Prediction](./3ano/trabalhos_MachineLearning) | Modelos de ML (Decision Trees, SVM) para diagnóstico médico via Kaggle. |
 | **Algoritmia** | [EDA 2 Collection](./2ano/EDA2) | Implementações de algoritmos como Edmonds-Karp, Programação Dinâmica e BFS em grafos. |
 | **Low Level** | [Image De-noising](./1ano/trabalho_arquiteturaComputadores) | Processamento de imagem (filtros média/mediana) escrito em Assembly RISC-V. |
