@@ -44,7 +44,7 @@ This repository serves as my **Engineering Portfolio**, gathering the most relev
 
 * **Systems & Architecture**: Low-level programming (Assembly RISC-V), process lifecycle, and memory management (C/Linux).
 * **Linux Systems Administration**: Experience with environment setup, custom dual-boot configurations, partitioning, and bash scripting.
-* **Data Structures & Algorithms**: Strong foundation in graph theory, network flow algorithms, and time/space complexity optimization ($O(n \log n)$).
+* **Data Structures & Algorithms**: Strong foundation in graph theory, network flow algorithms, and time/space complexity optimization (O(n log n)).
 * **Full-Stack Development**: Designing scalable backend REST APIs and consuming web services through dynamic front-end interfaces.
 * **Relational Databases**: Database schema design, relational algebra modeling, and complex SQL query optimization.
 
