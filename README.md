@@ -31,12 +31,12 @@ This repository serves as my **Engineering Portfolio**, gathering the most relev
 | Category | Project | Description |
 | :--- | :--- | :--- |
 | **Backend** | [Eventastic](https://github.com/dptavares05/eventastic) | Modular event management system built with Java/Spring Boot, featuring registration logic and scalable architecture. |
-| **Web App** | [Da Terra](./2ano/DaTerra) | Full-stack anti-food-waste web platform with responsive front-end design and RESTful API integration. |
-| **Algorithmic Agent** | [Battleship OCaml Agent](./3ano/Battleship) | Autonomous Battleship game agent developed in OCaml utilizing a deterministic attack strategy. |
-| **Algorithms** | [EDA 2 Collection](./2ano/EDA2) | Advanced data structures and algorithms repository, including Edmonds-Karp (maximum flow), Dynamic Programming, and BFS graph traversals. |
+| **Web App** | [Da Terra](./3ano/trabalhos_TecnologiasWeb/tweb-t2-58049-59119) | Full-stack anti-food-waste web platform with responsive front-end design and RESTful API integration. |
+| **Algorithmic Agent** | [Battleship OCaml Agent](./3ano/trabalho_programacao3) | Autonomous Battleship game agent developed in OCaml utilizing a deterministic attack strategy. |
+| **Algorithms** | [EDA 2 Collection](./2ano/trabalhos_EstruturasdeDadosEAlgoritmos) | Advanced data structures and algorithms repository, including Edmonds-Karp (maximum flow), Dynamic Programming, and BFS graph traversals. |
 | **Data Science** | [Brain Tumor Prediction](./3ano/trabalhos_MachineLearning) | Machine Learning models (Decision Trees, SVM) trained on Kaggle datasets for automated medical diagnosis. |
 | **Low Level** | [Image De-noising](./1ano/trabalho_arquiteturaComputadores) | Low-level image processing implementation (mean/median noise-reduction filters) written in Assembly RISC-V. |
-| **Logic & Games** | [Guru & Ouri](./1ano) | Game logic implementations, custom dictionaries, and state persistence engineered in Java and C. |
+| **Logic & Games** | [Guru](./1ano/trabalho_programacao2/P2-Guru-WordGame-Java) & [Ouri](./1ano/trabalho_programacao1) | Game logic implementations, custom dictionaries, and state persistence engineered in Java and C. |
 
 ---
 
