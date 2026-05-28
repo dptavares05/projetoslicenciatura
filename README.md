@@ -32,8 +32,10 @@ This repository serves as my **Engineering Portfolio**, gathering the most relev
 | :--- | :--- | :--- |
 | **Backend** | [Eventastic](https://github.com/dptavares05/eventastic) | Modular event management system built with Java/Spring Boot, featuring registration logic and scalable architecture. |
 | **Web App** | [Da Terra](./3ano/trabalhos_TecnologiasWeb/tweb-t2-58049-59119) | Full-stack anti-food-waste web platform with responsive front-end design and RESTful API integration. |
-| **Algorithmic Agent** | [Battleship OCaml Agent](./3ano/trabalho_programacao3) | Autonomous Battleship game agent developed in OCaml utilizing a deterministic attack strategy. |
 | **Algorithms** | [EDA 2 Collection](./2ano/trabalhos_EstruturasdeDadosEAlgoritmos) | Advanced data structures and algorithms repository, including Edmonds-Karp (maximum flow), Dynamic Programming, and BFS graph traversals. |
+| **Networking** | [Real-Time Chat UDP/TCP](./2ano/trabalho_RedesdeComputadores) | Client-server real-time messaging application developed in C. Integrates UDP sockets for low-latency transmission and TCP for reliable file transfers, managing concurrency via `pthreads` and `select()`. |
+| **Hardware** | [Digital Traffic Controller](./1ano/trabalho_SistemasDigitais) | Digital logic circuit designed and simulated in Logisim. Implements algorithmic state machine control for a traffic light system, optimized using Karnaugh maps and D-Type Flip-Flops. |
+| **Algorithmic Agent** | [Battleship OCaml Agent](./3ano/trabalho_programacao3) | Autonomous Battleship game agent developed in OCaml utilizing a deterministic attack strategy. |
 | **Data Science** | [Brain Tumor Prediction](./3ano/trabalhos_MachineLearning) | Machine Learning models (Decision Trees, SVM) trained on Kaggle datasets for automated medical diagnosis. |
 | **Low Level** | [Image De-noising](./1ano/trabalho_arquiteturaComputadores) | Low-level image processing implementation (mean/median noise-reduction filters) written in Assembly RISC-V. |
 | **Logic & Games** | [Guru](./1ano/trabalho_programacao2/P2-Guru-WordGame-Java) & [Ouri](./1ano/trabalho_programacao1) | Game logic implementations, custom dictionaries, and state persistence engineered in Java and C. |
@@ -47,6 +49,9 @@ This repository serves as my **Engineering Portfolio**, gathering the most relev
 * **Data Structures & Algorithms**: Strong foundation in graph theory, network flow algorithms, and time/space complexity optimization (O(n log n)).
 * **Full-Stack Development**: Designing scalable backend REST APIs and consuming web services through dynamic front-end interfaces.
 * **Relational Databases**: Database schema design, relational algebra modeling, and complex SQL query optimization.
+* * **Network & Systems Programming**: Socket programming (TCP/UDP), I/O multiplexing, concurrency management (POSIX threads), and custom application-layer protocol design in C.
+* **Mobile Development**: Native Android application architecture, focusing on decentralized networking, background services, and device-to-device communication protocols.
+* **Digital Systems**: State machine design, Boolean algebra optimization (Karnaugh maps), and digital circuit simulation.
 
 ---
 
